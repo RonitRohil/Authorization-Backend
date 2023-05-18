@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>STCO Register</title>
+</head>
+<body>
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+          <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+          </div>
+          <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+        <div class="dsignupform">
+        <center><p style="font-size: 35px;"> Please enter your details</p></center>
+        <br>
+          <form style="margin-left:50px;"  action="/register" method="post"> 
+            <p>First_Name: <input type="text" required name="firstname"></p>
+            <br>
+            <p>Last_Name: <input type="text" required name="lastname"></p>
+            <br>
+            <p>Email: <input type="email" required name="email"></p>
+            <br>
+            <p>Password: <input type="password" required name="password"></p>
+            <br>
+            <p>Phone Number: <input type="number" required name="phonenumber"></p>
+            <br>
+            
+            <p>
+                <a href="/home">
+                <input type="submit" value="Register" style="background-color: rgb(15, 130, 237); color:white; border-radius: 20px; padding: 15px; text-align: center;font-size: 16px; margin: 4px 15px; cursor: pointer; display: inline-block; width: 100px; height: 55px; border-color: rgb(0, 91, 136);">
+            </a>
+            </p>
+        </form>
+    </div>
+
+          </div>
+        </div>
+      </section>
+</body>
+</html>
