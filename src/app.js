@@ -6,6 +6,7 @@ const bcrypt = require("bcryptjs");
 const app = express();
 const conn = require("./config/database");
 const jwt = require("jsonwebtoken");
+const cookieParser = require("cookie-parser");
 
 const port = process.env.PORT || 8080;
 
@@ -14,6 +15,7 @@ const views_path = path.join(__dirname, "../templates/views")
 const partials_path = path.join(__dirname, "../templates/partials")
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded({extended:false}))
 
 // console.log(static_path);
@@ -55,6 +57,15 @@ app.post("/register", async (req, res) =>{
         const token = await registerUser.generateAuthToken();
         console.log("The token part: " + token);
 
+        res.cookie("jwt", token, {
+            expires:new Date(Date.now() + 30000),
+            httpOnly: true,
+        });
+
+        console.log(`This is the Cookie: ${req.cookies.jwt}`)
+
+        // console.log(cookie);
+
         const registered_user = await registerUser.save();
         res.status(201).render("index");
 
@@ -79,6 +90,11 @@ app.post("/login", async (req, res) =>{
 
         const token = await useremail.generateAuthToken();
         console.log("The token part: " + token);
+
+        res.cookie("jwt", token, {
+            expires:new Date(Date.now() + 50000),
+            httpOnly: true,
+        });
 
         if(isMatch)
         {
