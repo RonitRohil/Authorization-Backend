@@ -12,7 +12,7 @@ const port = process.env.PORT || 8080;
 
 const static_path = path.join(__dirname, "../ṭemplates");
 const views_path = path.join(__dirname, "../templates/views")
-const partials_path = path.join(__dirname, "../templates/partials")
+// const partials_path = path.join(__dirname, "../templates/partials")
 
 app.use(express.json());
 app.use(cookieParser());
